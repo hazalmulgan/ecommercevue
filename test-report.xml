@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/Users/hazal/Desktop/my_project/tests/components/ProductItem.spec.js">
+    <testCase name="ProductItem it should parse data when component is rendered" duration="14">
+      <failure message="Error: expect(received).toBe(expected) // Object.is equality"><![CDATA[Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: "100"
+Received: "100 currency"
+    at Object.<anonymous> (/Users/hazal/Desktop/my_project/tests/components/ProductItem.spec.js:23:47)
+    at Object.asyncJestTest (/Users/hazal/Desktop/my_project/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:102:37)
+    at /Users/hazal/Desktop/my_project/node_modules/jest-jasmine2/build/queueRunner.js:43:12
+    at new Promise (<anonymous>)
+    at mapper (/Users/hazal/Desktop/my_project/node_modules/jest-jasmine2/build/queueRunner.js:26:19)
+    at /Users/hazal/Desktop/my_project/node_modules/jest-jasmine2/build/queueRunner.js:73:41
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)]]></failure>
+    </testCase>
+  </file>
+</testExecutions>
