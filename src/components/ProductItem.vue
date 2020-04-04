@@ -19,9 +19,9 @@
         <b-row align-h="center" class="text-center row mb-3 row mt-3">
           <b-col cols="4" class="price">{{ productItem.price }}₺</b-col>
           <b-col cols="4">
-             <router-link to="/Basket" name="Basket">
-            <b-button @click="addToBasket('add')">ADD BASKET</b-button>
-             </router-link>
+            <router-link to="/Basket" name="Basket">
+              <b-button @click="addToBasket('add')">ADD BASKET</b-button>
+            </router-link>
           </b-col>
         </b-row>
       </b-col>
@@ -44,10 +44,13 @@ export default {
   methods: {
     ...mapMutations(["ADD_TO_CART"]),
     addToBasket() {
-      if(this.productItem.id == 3){
-        console.log("eklenemedi")
-      }else
-      this.ADD_TO_CART(this.productItem);
+      if (this.productItem.id == 3) {
+        console.log("eklenemedi");
+      } else
+        this.ADD_TO_CART({
+          ...this.productItem,
+          amount: 1
+        });
     }
   }
 };
@@ -58,7 +61,7 @@ export default {
 
 .container {
   font-family: main.$font-stack;
-  color: main.$font-color
+  color: main.$font-color;
 }
 
 .name {

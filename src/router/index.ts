@@ -1,5 +1,5 @@
 import VueRouter from 'vue-router'
-import BasketItem from '@/components/BasketItem.vue'
+import BasketList from '@/components/BasketList.vue'
 import ProductList from '@/components/ProductList.vue'
 
 const routes = [
@@ -11,7 +11,7 @@ const routes = [
   {
     path: '/Basket',
     name: 'Basket',
-    component: BasketItem
+    component: BasketList
   }
  
 ]
