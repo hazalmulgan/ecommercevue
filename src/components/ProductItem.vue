@@ -19,7 +19,9 @@
         <b-row align-h="center" class="text-center row mb-3 row mt-3">
           <b-col cols="4" class="price">{{ productItem.price }}₺</b-col>
           <b-col cols="4">
-            <b-button block>ADD BASKET</b-button>
+             <router-link to="/Basket" name="Basket">
+            <b-button @click="addToBasket('add')">ADD BASKET</b-button>
+             </router-link>
           </b-col>
         </b-row>
       </b-col>
@@ -28,6 +30,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   name: "ProductItem",
   props: {
@@ -36,8 +39,17 @@ export default {
       required: false,
       default: () => ""
     }
+  },
+
+  methods: {
+    ...mapMutations(["ADD_TO_CART"]),
+    addToBasket() {
+      if(this.productItem.id == 3){
+        console.log("eklenemedi")
+      }else
+      this.ADD_TO_CART(this.productItem);
+    }
   }
- 
 };
 </script>
 

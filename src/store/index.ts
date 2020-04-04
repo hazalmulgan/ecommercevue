@@ -1,19 +1,38 @@
+
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from "axios";
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    dataList: [] as any
+  },
+
+  mutations: {
+    ADD_TO_CART: (state, product) => {
+      state.dataList.push(product)
+    },
+    DELETE_FROM_CART: (state, product) => {
+      state.dataList.splice(product,1)
+    },
   
   },
-  mutations: {
-   
-  },
+
   actions: {
- 
+    addDataAction(vuexContent, data) {
+      vuexContent.commit("addDataMutation", data)
+    }
+
   },
+
+  getters: {
+    mycartList: state => {
+      return state.dataList
+    }
+
+  },
+
   modules: {
   }
 })

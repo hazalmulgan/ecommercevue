@@ -1,14 +1,11 @@
 <template>
   <div>
-    <b-button v-b-modal.modal-1>Launch demo modal</b-button>
-  <b-modal id="modal-1" title="BootstrapVue">
-    <p class="my-4">{{this.message}}</p>
-    </b-modal>
+<p>hzal<p>
   </div>
 </template>
 
 <script>
-export default {
+/*export default {
   data() {
     return {
       message: ''
@@ -32,7 +29,7 @@ export default {
       }
     }
   }
-};
+};*/
 </script>
 
 <style>
