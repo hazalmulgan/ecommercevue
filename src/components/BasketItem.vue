@@ -14,25 +14,27 @@
     <div v-if="mycartList.length > 0">
       <b-row align-h="center">
         <b-col>
-          <b-row class="row mt-3" align-h="center">
-            <b-col cols="8" class="cartHeader">
+          <b-row class="row mt-3 cartHeader" align-h="center">
+            <b-col cols="8">
               <span>MY CART({{mycartList.length}})</span>
             </b-col>
           </b-row>
         </b-col>
       </b-row>
-      <b-row align-h="center" v-for="basketItem in mycartList" v-bind:key="basketItem.id">
+      <b-row
+        align-h="center"
+        class="row mt-3 mb-3"
+        v-for="basketItem in mycartList"
+        v-bind:key="basketItem.id"
+      >
         <b-col>
           <b-row class="row mt-3" align-h="center">
             <b-col cols="4">
               <img v-bind:src="basketItem.image" fluid width="200" alt="basketItem.name" />
             </b-col>
             <b-col cols="4">
-              <b-row style="font-size:23px; margin-top: 1em !important">{{basketItem.name}}</b-row>
-              <b-row
-                class="text-center"
-                style="margin-top: 3rem !important; font-size:25px; font-weight:bold"
-              >{{basketItem.price}}₺</b-row>
+              <b-row class="basketName">{{basketItem.name}}</b-row>
+              <b-row class="text-center basketPrice">{{basketItem.price}}₺</b-row>
             </b-col>
           </b-row>
           <b-row class="row mt-3 mb-3" align-h="center">
@@ -46,21 +48,22 @@
           </b-row>
         </b-col>
       </b-row>
+      </div>
       <b-row align-h="center">
         <b-col>
-          <b-row class="row mt-3" align-h="center">
+          <b-row class="row mt-3 mb-3" align-h="center">
             <b-col cols="4">
               <router-link to="/" name="Basket">
                 <b-button block variant="outline-secondary">CONTINUE SHOPPING</b-button>
               </router-link>
             </b-col>
             <b-col cols="4">
-              <b-button block @click="submitOrder()">PLACE ORDER</b-button>
+              <b-button :disabled="mycartList.length == 0 ? true : false" block @click="submitOrder()" >PLACE ORDER</b-button>
             </b-col>
           </b-row>
         </b-col>
       </b-row>
-    </div>
+    
   </b-container>
 </template>
 
@@ -71,13 +74,13 @@ import { mapMutations } from "vuex";
 export default {
   computed: {
     ...mapGetters(["mycartList"])
-  },    
+  },
 
-data(){
-  return {
-    value:50
-  }
-},
+  data() {
+    return {
+      value: 50
+    };
+  },
   methods: {
     ...mapMutations(["DELETE_FROM_CART"]),
     removeItem(basketItem) {
@@ -93,8 +96,21 @@ data(){
 
 <style lang="scss">
 @use 'main.scss';
+
+.basketName {
+  font-size: main.$basket-name;
+  margin-top: 1em !important;
+}
+.basketPrice {
+  font-size: main.$basket-price;
+  margin-top: 3rem !important;
+  font-weight: bold;
+}
+.cartHeader {
+  font-size: main.$list-price !important;
+}
 .bucketMessage {
-  font-size: main.$price-size;
+  font-size: main.$list-price;
   color: #6c757d;
   border: 1px solid #6c757d;
   padding: 10px;

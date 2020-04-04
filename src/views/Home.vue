@@ -42,6 +42,7 @@ export default {
 .btn-secondary {
   background-color: main.$bg-color !important;
   border-color: main.$bg-color !important;
+  border-radius: 0.2rem !important;
 }
 </style>
 

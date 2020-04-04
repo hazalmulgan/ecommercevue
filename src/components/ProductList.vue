@@ -38,6 +38,6 @@ export default {
 </script>
 <style lang="scss">
 .item{
-  border:1px solid #F2EBEB ;
+  border:1px solid #E1E1E1 ;
 }
 </style>

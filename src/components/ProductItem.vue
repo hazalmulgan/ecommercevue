@@ -58,14 +58,15 @@ export default {
 
 .container {
   font-family: main.$font-stack;
+  color: main.$font-color
 }
 
 .name {
-  font-size: main.$name-size;
+  font-size: main.$list-name;
 }
 
 .price {
-  font-size: main.$price-size;
+  font-size: main.$list-price;
 }
 
 @media only screen and (max-width: 420px) {
