@@ -21,6 +21,8 @@
         </b-col>
 </template>
 <script>
+import { mapMutations } from "vuex";
+
 export default {
    props: {
     basketItem: {
@@ -29,6 +31,13 @@ export default {
       default: () => ""
     }
   },
+
+      methods: {
+    ...mapMutations(["DELETE_FROM_CART"]),
+    removeItem(basketItem) {
+      this.DELETE_FROM_CART(basketItem);
+    }, 
+}
 }
 </script>
 
