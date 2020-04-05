@@ -11,12 +11,19 @@ export default new Vuex.Store({
 
   mutations: {
     ADD_TO_CART: (state, product) => {
-      state.dataList.push(product)
+      const found = state.dataList.find(value => value.id == product.id);
+      if (found) {
+        found.amount++;
+      } else {
+        state.dataList.push(product)
+
+      }
+
     },
     DELETE_FROM_CART: (state, product) => {
-      state.dataList.splice(product,1)
+      state.dataList.splice(product, 1)
     },
-  
+
   },
 
   actions: {

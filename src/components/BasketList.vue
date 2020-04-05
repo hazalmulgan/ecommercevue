@@ -50,7 +50,6 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { mapMutations } from "vuex";
 import BasketItem from "@/components/BasketItem.vue";
 
 export default {
@@ -70,8 +69,8 @@ export default {
   
   methods: {
     submitOrder() {
-      console.log("siparis");
-    }
+
+console.log(mycartList)}
   }
 };
 </script>
