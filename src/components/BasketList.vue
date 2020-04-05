@@ -23,54 +23,66 @@
       </b-row>
       <b-row
         align-h="center"
-        class="row mt-3 mb-3"
+        class="row mt-3 mb-3 mainRow"
         v-for="basketItem in mycartList"
         v-bind:key="basketItem.id"
       >
-    <basket-item :basket-item="basketItem">
-    </basket-item>
+        <basket-item :basket-item="basketItem"></basket-item>
       </b-row>
-      </div>
-      <b-row align-h="center">
-        <b-col>
-          <b-row class="row mt-3 mb-3" align-h="center">
-            <b-col cols="4">
-              <router-link to="/" name="Basket">
-                <b-button block variant="outline-secondary">CONTINUE SHOPPING</b-button>
-              </router-link>
-            </b-col>
-            <b-col cols="4">
-              <b-button :disabled="mycartList.length == 0 ? true : false" block @click="submitOrder()" >PLACE ORDER</b-button>
-            </b-col>
-          </b-row>
-        </b-col>
-      </b-row>
+    </div>
+    <b-row align-h="center">
+      <b-col>
+        <b-row class="row mt-3 mb-3" align-h="center">
+          <b-col cols="4">
+            <router-link to="/" name="Basket" class="routerLink">
+              <b-button block variant="outline-secondary">CONTINUE SHOPPING</b-button>
+            </router-link>
+          </b-col>
+          <b-col cols="4">
+            <b-button
+              :disabled="mycartList.length == 0 ? true : false"
+              block
+              @click="submitOrder()"
+            >PLACE ORDER</b-button>
+          </b-col>
+        </b-row>
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import BasketItem from "@/components/BasketItem.vue";
+import axios from "axios";
 
 export default {
-  components:{
+  components: {
     BasketItem
   },
-  
+
   computed: {
     ...mapGetters(["mycartList"])
   },
 
   data() {
     return {
-      value: BasketItem.amount
+      value: BasketItem.amount,
     };
   },
-  
+
   methods: {
     submitOrder() {
-
-console.log(mycartList)}
+      let orderedItems = [];
+      orderedItems = this.mycartList.map(item => {
+        return { id: item.id, amount: item.amount };
+      });
+      axios
+        .post("https://nonchalant-fang.glitch.me/order", orderedItems)
+        .then(function(response) {
+          console.log(this.response.message)       
+        });
+    }
   }
 };
 </script>
@@ -96,5 +108,12 @@ console.log(mycartList)}
   border: 1px solid #6c757d;
   padding: 10px;
   border-radius: 0.25rem;
+}
+.routerLink {
+  text-decoration: none !important;
+}
+
+.mainRow {
+  border-top: 1px solid #e1e1e1;
 }
 </style>

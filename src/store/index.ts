@@ -21,7 +21,9 @@ export default new Vuex.Store({
 
     },
     DELETE_FROM_CART: (state, product) => {
-      state.dataList.splice(product, 1)
+      state.dataList = state.dataList.filter(item =>{
+        return item.id !== product.id
+      })
     },
 
   },

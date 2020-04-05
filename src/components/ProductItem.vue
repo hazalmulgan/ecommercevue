@@ -44,9 +44,6 @@ export default {
   methods: {
     ...mapMutations(["ADD_TO_CART"]),
     addToBasket() {
-      if (this.productItem.id == 3) {
-        console.log("eklenemedi");
-      } else
         this.ADD_TO_CART({
           ...this.productItem,
           amount: 1
