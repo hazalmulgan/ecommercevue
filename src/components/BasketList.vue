@@ -70,9 +70,10 @@
 </template>
 
 <script>
+
 import { mapGetters } from "vuex";
 import BasketItem from "@/components/BasketItem.vue";
-import axios from "axios";
+import axios from 'axios';
 import { mapState } from "vuex";
 
 export default {
@@ -99,7 +100,6 @@ export default {
       });
       axios
         .post("https://nonchalant-fang.glitch.me/order", orderedItems)
-
         .then(response => {
           this.$store.dispatch("clearCartItems");
           this.$store.dispatch("setSnackBar", {
@@ -112,7 +112,7 @@ export default {
         .catch(err => {
           this.$store.dispatch("setSnackBar", {
             showing: true,
-            text: "Dis Fircasi is out of stock",
+            text: "Dis Fircasi is out of stock!",
             color: "danger"
           });
         });
@@ -131,14 +131,17 @@ export default {
   font-size: main.$basket-name;
   margin-top: 1em !important;
 }
+
 .basketPrice {
   font-size: main.$basket-price;
   margin-top: 3rem !important;
   font-weight: bold;
 }
+
 .cartHeader {
   font-size: main.$list-price !important;
 }
+
 .bucketMessage {
   font-size: main.$list-price;
   color: #6c757d;
@@ -146,6 +149,7 @@ export default {
   padding: 10px;
   border-radius: 0.25rem;
 }
+
 .routerLink {
   text-decoration: none !important;
 }

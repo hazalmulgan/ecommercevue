@@ -18,12 +18,11 @@
   </div>
 </template>
 <script>
+
 export default {
   name: "Home"
-  // components: {
-  //   ProductList
-  // }
 };
+
 </script>
 
 <style lang="scss">

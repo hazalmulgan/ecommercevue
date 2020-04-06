@@ -30,7 +30,9 @@
 </template>
 
 <script>
+
 import { mapMutations } from "vuex";
+
 export default {
   name: "ProductItem",
   props: {
@@ -44,15 +46,15 @@ export default {
   methods: {
     ...mapMutations(["ADD_TO_CART"]),
     addToBasket() {
-        this.ADD_TO_CART({
-          ...this.productItem,
-          amount: 1
-        });
-        this.$store.dispatch('setSnackBar', {
-          showing:true,
-          text: 'Product added to cart successfully!',
-          color: 'success'
-        })
+      this.ADD_TO_CART({
+        ...this.productItem,
+        amount: 1
+      });
+      this.$store.dispatch("setSnackBar", {
+        showing: true,
+        text: "Product added to cart successfully!",
+        color: "success"
+      });
     }
   }
 };
