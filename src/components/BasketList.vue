@@ -48,7 +48,7 @@
               :disabled="mycartList.length == 0 ? true : false"
               block
               @click="submitOrder"
-            >ORDER</b-button>
+            >PLACE ORDER</b-button>
           </b-col>
         </b-row>
       </b-col>
