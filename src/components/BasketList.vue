@@ -42,9 +42,23 @@
             <b-button
               :disabled="mycartList.length == 0 ? true : false"
               block
-              @click="submitOrder()"
-            >PLACE ORDER</b-button>
+              @click="submitOrder"
+            >ORDER</b-button>
           </b-col>
+        </b-row>
+      </b-col>
+    </b-row>
+
+    <b-row align-h="center">
+      <b-col>
+        <b-row class="row mt-3 mb-3" align-h="center">
+          <b-alert
+            :show="snackbar.showing"
+            :variant="snackbar.color"
+            dismissible
+            fade
+            class="position-fixed fixed-bottom m-3 rounded-3"
+          >{{snackbar.text}}</b-alert>
         </b-row>
       </b-col>
     </b-row>
@@ -55,6 +69,7 @@
 import { mapGetters } from "vuex";
 import BasketItem from "@/components/BasketItem.vue";
 import axios from "axios";
+import { mapState } from "vuex";
 
 export default {
   components: {
@@ -62,12 +77,13 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["mycartList"])
+    ...mapGetters(["mycartList"]),
+    ...mapState(["snackbar"])
   },
 
   data() {
     return {
-      value: BasketItem.amount,
+      value: BasketItem.amount
     };
   },
 
@@ -79,8 +95,20 @@ export default {
       });
       axios
         .post("https://nonchalant-fang.glitch.me/order", orderedItems)
-        .then(function(response) {
-          console.log(this.response.message)       
+
+        .then(response => {
+          this.$store.dispatch("setSnackBar", {
+            showing: true,
+            text: response.data.message,
+            color: "success"
+          });
+          this.mycartList = []
+        }).catch(err => {
+         this.$store.dispatch("setSnackBar", {
+            showing: true,
+            text: 'Dis Fircasi is out of stock',
+            color: "danger"
+          });
         });
     }
   }
@@ -115,5 +143,9 @@ export default {
 
 .mainRow {
   border-top: 1px solid #e1e1e1;
+}
+
+.alert{
+  width: 20%;
 }
 </style>

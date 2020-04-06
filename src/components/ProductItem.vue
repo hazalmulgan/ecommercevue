@@ -48,6 +48,11 @@ export default {
           ...this.productItem,
           amount: 1
         });
+        this.$store.dispatch('setSnackBar', {
+          showing:true,
+          text: 'Product added to cart successfully!',
+          color: 'success'
+        })
     }
   }
 };

@@ -1,4 +1,3 @@
-
 import Vue from 'vue'
 import Vuex from 'vuex'
 
@@ -6,7 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    dataList: [] as any
+    dataList: [] as any,
+    snackbar: {}
   },
 
   mutations: {
@@ -26,13 +26,16 @@ export default new Vuex.Store({
       })
     },
 
+    SET_SNACKBAR(state, snackbar) {
+      state.snackbar = snackbar
+    },
+
   },
 
   actions: {
-    addDataAction(vuexContent, data) {
-      vuexContent.commit("addDataMutation", data)
-    }
-
+    setSnackBar({commit}, snackbar){
+      commit('SET_SNACKBAR', snackbar);
+    },
   },
 
   getters: {

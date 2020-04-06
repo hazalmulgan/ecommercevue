@@ -36,7 +36,13 @@ export default {
     ...mapMutations(["DELETE_FROM_CART"]),
     removeItem(basketItem) {
       this.DELETE_FROM_CART(basketItem);
+        this.$store.dispatch('setSnackBar', {
+          showing:true,
+          text: 'The product has been removed from your cart!',
+          color: 'secondary'
+        })
     }, 
+    
 }
 }
 </script>
