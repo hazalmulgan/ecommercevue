@@ -101,7 +101,6 @@ export default {
       axios
         .post("https://nonchalant-fang.glitch.me/order", orderedItems)
         .then(response => {
-          this.$store.dispatch("clearCartItems");
           this.$store.dispatch("setSnackBar", {
             showing: true,
             text: response.data.message,
