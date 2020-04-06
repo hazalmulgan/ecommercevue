@@ -21,7 +21,7 @@ export default new Vuex.Store({
 
     },
     DELETE_FROM_CART: (state, product) => {
-      state.dataList = state.dataList.filter(item =>{
+      state.dataList = state.dataList.filter(item => {
         return item.id !== product.id
       })
     },
@@ -30,12 +30,22 @@ export default new Vuex.Store({
       state.snackbar = snackbar
     },
 
+    CLEAR_ALL(state) {
+     console.log(state)
+      state.dataList = []
+    }
   },
 
   actions: {
-    setSnackBar({commit}, snackbar){
+    setSnackBar({ commit }, snackbar) {
       commit('SET_SNACKBAR', snackbar);
     },
+
+    clearCartItems({ commit }) {
+      commit('CLEAR_ALL')
+
+    },
+
   },
 
   getters: {

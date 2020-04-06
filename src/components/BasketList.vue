@@ -15,8 +15,13 @@
       <b-row align-h="center">
         <b-col>
           <b-row class="row mt-3 cartHeader" align-h="center">
-            <b-col cols="8">
+            <b-col cols="4">
               <span>MY CART({{mycartList.length}})</span>
+            </b-col>
+            <b-col cols="4" style="text-align:end">
+              <b-button variant="outline-secondary" @click="clearAll">
+                <b-icon icon="trash" aria-hidden="true"></b-icon>
+              </b-button>
             </b-col>
           </b-row>
         </b-col>
@@ -48,7 +53,6 @@
         </b-row>
       </b-col>
     </b-row>
-
     <b-row align-h="center">
       <b-col>
         <b-row class="row mt-3 mb-3" align-h="center">
@@ -97,19 +101,24 @@ export default {
         .post("https://nonchalant-fang.glitch.me/order", orderedItems)
 
         .then(response => {
+          this.$store.dispatch("clearCartItems");
           this.$store.dispatch("setSnackBar", {
             showing: true,
             text: response.data.message,
             color: "success"
           });
-          this.mycartList = []
-        }).catch(err => {
-         this.$store.dispatch("setSnackBar", {
+          this.$store.dispatch("clearCartItems");
+        })
+        .catch(err => {
+          this.$store.dispatch("setSnackBar", {
             showing: true,
-            text: 'Dis Fircasi is out of stock',
+            text: "Dis Fircasi is out of stock",
             color: "danger"
           });
         });
+    },
+    clearAll() {
+      this.$store.dispatch("clearCartItems");
     }
   }
 };
@@ -145,7 +154,7 @@ export default {
   border-top: 1px solid #e1e1e1;
 }
 
-.alert{
+.alert {
   width: 20%;
 }
 </style>
