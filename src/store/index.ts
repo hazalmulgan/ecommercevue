@@ -31,7 +31,6 @@ export default new Vuex.Store({
     },
 
     CLEAR_ALL(state) {
-     console.log(state)
       state.dataList = []
     }
   },
