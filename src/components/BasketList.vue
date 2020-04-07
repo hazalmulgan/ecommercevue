@@ -19,7 +19,7 @@
               <span>MY CART({{mycartList.length}})</span>
             </b-col>
             <b-col cols="4" style="text-align:end">
-              <b-button variant="outline-secondary" @click="clearAll">
+              <b-button variant="outline-secondary" @click="clearAll" class="clear-button">
                 <b-icon icon="trash" aria-hidden="true"></b-icon>
               </b-button>
             </b-col>
@@ -45,6 +45,7 @@
           </b-col>
           <b-col cols="4">
             <b-button
+              class="order-button"
               :disabled="mycartList.length == 0 ? true : false"
               block
               @click="submitOrder"

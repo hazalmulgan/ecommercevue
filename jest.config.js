@@ -3,7 +3,7 @@ module.exports = {
     watchman: false,
     moduleNameMapper: {
         '^~/(.*)$': '<rootDir>/$1',
-        '^@/(.*)$': '<rootDir>/tests/$1',
+        '^@/(.*)$': '<rootDir>/src/$1',
     },
     transform: {
         '.*\\.(vue)$': 'vue-jest',

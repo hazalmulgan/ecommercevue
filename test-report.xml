@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="/Users/hazal/Desktop/my_project/tests/components/ProductItem.spec.js">
-    <testCase name="ProductItem it should parse data when component is rendered" duration="14">
-      <failure message="Error: expect(received).toBe(expected) // Object.is equality"><![CDATA[Error: expect(received).toBe(expected) // Object.is equality
+  <file path="/Users/hazal/Desktop/my_project/tests/components/productList.spec.js">
+    <testCase name="ProductList it should render product list" duration="18"/>
+  </file>
+  <file path="/Users/hazal/Desktop/my_project/tests/components/basketItem.spec.js">
+    <testCase name="BasketItem it should parse data when component is rendered" duration="54"/>
+    <testCase name="BasketItem it should add to cart when click the button" duration="16"/>
+  </file>
+  <file path="/Users/hazal/Desktop/my_project/tests/components/basketList.spec.js">
+    <testCase name="BasketList it should render basket list when length is zero" duration="46"/>
+    <testCase name="BasketList it should render basket list when length is more than zero" duration="50"/>
+    <testCase name="BasketList it should submit order when click the submit button" duration="143">
+      <failure message="Error: expect(jest.fn()).toHaveBeenCalled()"><![CDATA[Error: expect(jest.fn()).toHaveBeenCalled()
 
-Expected: "100"
-Received: "100 currency"
-    at Object.<anonymous> (/Users/hazal/Desktop/my_project/tests/components/ProductItem.spec.js:23:47)
+Expected number of calls: >= 1
+Received number of calls:    0
+    at Object.<anonymous> (/Users/hazal/Desktop/my_project/tests/components/basketList.spec.js:120:45)
     at Object.asyncJestTest (/Users/hazal/Desktop/my_project/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:102:37)
     at /Users/hazal/Desktop/my_project/node_modules/jest-jasmine2/build/queueRunner.js:43:12
     at new Promise (<anonymous>)
@@ -14,5 +23,18 @@ Received: "100 currency"
     at /Users/hazal/Desktop/my_project/node_modules/jest-jasmine2/build/queueRunner.js:73:41
     at processTicksAndRejections (internal/process/task_queues.js:97:5)]]></failure>
     </testCase>
+    <testCase name="BasketList it should not submit order when out of stock" duration="14">
+      <failure message="Error: expect(jest.fn()).toHaveBeenCalled()"><![CDATA[Error: expect(jest.fn()).toHaveBeenCalled()
+
+Expected number of calls: >= 1
+Received number of calls:    0
+    at Object.<anonymous> (/Users/hazal/Desktop/my_project/tests/components/basketList.spec.js:165:44)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)]]></failure>
+    </testCase>
+    <testCase name="BasketList it should clear cart items when click button" duration="16"/>
+  </file>
+  <file path="/Users/hazal/Desktop/my_project/tests/components/productItem.spec.js">
+    <testCase name="ProductItem it should parse data when component is rendered" duration="30"/>
+    <testCase name="ProductItem it should add to cart when click the button" duration="3"/>
   </file>
 </testExecutions>

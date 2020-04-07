@@ -12,7 +12,7 @@
     <b-row class="row mt-3 mb-3" align-h="center">
       <b-col cols="4">
         <label for="sb-inline"></label>
-        <b-form-spinbutton id="sb-inline" v-model="basketItem.amount" inline></b-form-spinbutton>
+        <b-form-spinbutton id="sb-inline" class="basketAmount" v-model="basketItem.amount" inline></b-form-spinbutton>
       </b-col>
       <b-col cols="4">
         <b-button variant="outline-secondary" @click="removeItem(basketItem)">REMOVE</b-button>
