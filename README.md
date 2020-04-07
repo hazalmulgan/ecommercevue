@@ -10,25 +10,14 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
 ### Run your unit tests
 ```
-npm run test:unit
+npm run test
 ```
 
-### Run your end-to-end tests
+### Frameworks
 ```
-npm run test:e2e
+bootstrap: for ui,
+jest: for testing,
+mock-axios-adapter: for mocking axios request
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

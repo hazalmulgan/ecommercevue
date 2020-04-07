@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1586240555990" clover="3.2.0">
-  <project timestamp="1586240555990" name="All files">
-    <metrics statements="25" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="14" coveredmethods="11" elements="39" coveredelements="34" complexity="0" loc="25" ncloc="25" packages="1" files="4" classes="4"/>
+<coverage generated="1586243809147" clover="3.2.0">
+  <project timestamp="1586243809147" name="All files">
+    <metrics statements="26" coveredstatements="24" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="9" elements="38" coveredelements="33" complexity="0" loc="26" ncloc="26" packages="1" files="4" classes="4"/>
     <file name="BasketItem.vue" path="/Users/hazal/Desktop/my_project/src/components/BasketItem.vue">
       <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
       <line num="24" count="2" type="stmt"/>
@@ -10,7 +10,7 @@
       <line num="39" count="1" type="stmt"/>
     </file>
     <file name="BasketList.vue" path="/Users/hazal/Desktop/my_project/src/components/BasketList.vue">
-      <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+      <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <line num="75" count="1" type="stmt"/>
       <line num="76" count="1" type="stmt"/>
       <line num="77" count="1" type="stmt"/>
@@ -19,10 +19,11 @@
       <line num="99" count="3" type="stmt"/>
       <line num="100" count="6" type="stmt"/>
       <line num="102" count="3" type="stmt"/>
+      <line num="103" count="3" type="stmt"/>
       <line num="105" count="1" type="stmt"/>
       <line num="110" count="1" type="stmt"/>
-      <line num="113" count="2" type="stmt"/>
-      <line num="121" count="1" type="stmt"/>
+      <line num="112" count="2" type="stmt"/>
+      <line num="120" count="1" type="stmt"/>
     </file>
     <file name="ProductItem.vue" path="/Users/hazal/Desktop/my_project/src/components/ProductItem.vue">
       <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>

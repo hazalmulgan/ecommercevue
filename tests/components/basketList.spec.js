@@ -115,7 +115,7 @@ describe('BasketList', () => {
         submitButton.trigger('click');
         mockAxios.onPost().replyOnce(200, {message : 'message'});
         wrapper.vm.$store.dispatch = jest.fn();
-        wrapper.vm.submitOrder();
+        await wrapper.vm.submitOrder();
 
          expect(wrapper.vm.$store.dispatch).toHaveBeenCalled();
         wrapper.destroy();
@@ -160,8 +160,7 @@ describe('BasketList', () => {
         submitButton.trigger('click');
         wrapper.vm.$store.dispatch = jest.fn();
         mockAxios.onPost().reply(500);
-        wrapper.vm.submitOrder();
-        await Promise.resolve();
+        await wrapper.vm.submitOrder();
         expect(wrapper.vm.$store.dispatch).toHaveBeenCalled()
         wrapper.destroy();
     })

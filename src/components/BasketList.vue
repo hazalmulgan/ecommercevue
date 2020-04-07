@@ -94,28 +94,27 @@ export default {
   },
 
   methods: {
-    submitOrder() {
+    async submitOrder() {
       let orderedItems = [];
       orderedItems = this.mycartList.map(item => {
         return { id: item.id, amount: item.amount };
       });
-      axios
-        .post("https://nonchalant-fang.glitch.me/order", orderedItems)
-        .then(response => {
-          this.$store.dispatch("setSnackBar", {
-            showing: true,
-            text: response.data.message,
-            color: "success"
-          });
-          this.$store.dispatch("clearCartItems");
-        })
-        .catch(err => {
-          this.$store.dispatch("setSnackBar", {
-            showing: true,
-            text: "Dis Fircasi is out of stock!",
-            color: "danger"
-          });
+      try {
+        const response =   await axios
+                .post("https://nonchalant-fang.glitch.me/order", orderedItems);
+          await this.$store.dispatch("setSnackBar", {
+          showing: true,
+          text: response.data.message,
+          color: "success"
         });
+         await this.$store.dispatch("clearCartItems");
+      } catch (err) {
+          await this.$store.dispatch("setSnackBar", {
+          showing: true,
+          text: "Dis Fircasi is out of stock!",
+          color: "danger"
+        });
+      }
     },
     clearAll() {
       this.$store.dispatch("clearCartItems");
