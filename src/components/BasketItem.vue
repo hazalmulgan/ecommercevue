@@ -10,11 +10,11 @@
       </b-col>
     </b-row>
     <b-row class="row mt-3 mb-3" align-h="center">
-      <b-col cols="4" id="quantity">
+      <!--<b-col cols="4" id="quantity">
         <label for="sb-inline"></label>
-        <b-form-spinbutton id="sb-inline" class="basketAmount" v-model="basketItem.amount" inline></b-form-spinbutton>
-      </b-col>
-      <b-col cols="4">
+        <b-form-spinbutton id="sb-inline" class="basketAmount" v-model="basketItem.amount" inline @change="onChange($event)"></b-form-spinbutton>
+      </b-col>-->
+      <b-col cols="1" style="margin-left: 200px">
         <b-button variant="outline-secondary" @click="removeItem(basketItem)">REMOVE</b-button>
       </b-col>
     </b-row>
@@ -41,7 +41,7 @@ export default {
         text: "The product has been removed from your cart!",
         color: "secondary"
       });
-    }
+    },
   }
 };
 </script>

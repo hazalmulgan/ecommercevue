@@ -33,7 +33,8 @@
         v-bind:key="basketItem.id"
       >
         <input type="checkbox" :value="basketItem" v-model="selectedItems">
-        <basket-item :basket-item="basketItem"></basket-item>
+        <basket-item
+            :basket-item="basketItem"/>
       </b-row>
     </div>
     <b-row align-h="center">
@@ -54,8 +55,8 @@
             >PLACE ORDER</b-button>
           </b-col>
         </b-row>
-        <b-row class="row mt-3 mb-3" align-h="center">
-          Toplam Fiyat: {{total}}
+        <b-row class="row mt-3 mb-3" align-h="center" style="font-size: 20px">
+          Toplam Fiyat: {{total}}₺
         </b-row>
       </b-col>
     </b-row>
@@ -99,7 +100,12 @@ export default {
       total: 0,
     };
   },
-
+mounted() {
+  this.mycartList.forEach((data) => {
+    this.total += data.price * data.amount;
+  });
+  return this.total;
+},
   methods: {
     ...mapMutations(["SET_SELECTED_ITEMS"]),
     submitOrder() {

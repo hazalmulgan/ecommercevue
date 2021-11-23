@@ -27,11 +27,20 @@
               </b-row>
               <b-row class="text-center row mt-3">
                 <b-col class="name">{{ productItem.name }}</b-col>
-                <b-col cols="4" class="price">{{ productItem.price }}₺</b-col>
+                <b-col cols="4" class="price">{{ productItem.price*productItem.amount }}₺</b-col>
               </b-row>
             </b-col>
           </b-row>
         </b-container>
+      </b-col>
+    </b-row>
+    <b-row align-h="center">
+      <b-col>
+        <b-row class="row mt-5 mb-3" align-h="center" style="justify-content: center; text-align: center">
+          <b-col style="font-size: 25px">
+            <strong>Toplam Fiyat : {{total}}₺</strong>
+          </b-col>
+        </b-row>
       </b-col>
     </b-row>
   </b-container>
@@ -42,9 +51,20 @@ import {mapGetters} from "vuex";
 
 export default {
 name: "OrderDetail",
+  data() {
+    return {
+      total: 0,
+      count: 0,
+    }
+    },
   computed: {
     ...mapGetters(["myItemList"]),
-
+  },
+  mounted() {
+    this.myItemList.forEach((data) => {
+      this.total += data.price*data.amount;
+    });
+    return this.total;
   },
 }
 </script>

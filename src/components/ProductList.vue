@@ -21,21 +21,65 @@ export default {
 
   data() {
     return {
-      productList: []
+      productList: [
+        {
+          currency: "TRY",
+          id: 1,
+          image: "https://cdn.glitch.com/a28552e7-44e1-4bbd-b298-5745e70c2209%2Fsampuan.jpeg?v=1561027551321",
+          name: "Şampuan",
+          price: 13
+        },
+        {
+          currency: "TRY",
+          id: 2,
+          image: "https://cdn.glitch.com/a28552e7-44e1-4bbd-b298-5745e70c2209%2Fdeodorant.jpeg?v=1561027551696",
+          name: "Deodorant",
+          price: 26
+        },
+        {
+          currency: "TRY",
+          id: 3,
+          image: "https://cdn.glitch.com/a28552e7-44e1-4bbd-b298-5745e70c2209%2Fdis-fircasi.jpeg?v=1561027551798",
+          name: "Diş Fırçası",
+          price: 19
+        },
+        {
+          currency: "TRY",
+          id: 4,
+          image: "https://cdn.glitch.com/a28552e7-44e1-4bbd-b298-5745e70c2209%2Fsampuan.jpeg?v=1561027551321",
+          name: "Pahalı Şampuan",
+          price: 135
+        },
+        {
+          currency: "TRY",
+          id: 5,
+          image: "https://cdn.glitch.com/a28552e7-44e1-4bbd-b298-5745e70c2209%2Fdeodorant.jpeg?v=1561027551696",
+          name: "Lüks Deodorant",
+          price: 260
+        },
+        {
+          currency: "TRY",
+          id: 6,
+          image: "https://cdn.glitch.com/a28552e7-44e1-4bbd-b298-5745e70c2209%2Fdis-fircasi.jpeg?v=1561027551798",
+          name: "Elit Diş Fırçası",
+          price: 190,
+        }
+
+      ]
     };
   },
 
-  mounted() {
+  /*mounted() {
     this.getProductList();
   },
 
   methods: {
     getProductList() {
       axios
-        .get("https://nonchalant-fang.glitch.me/listing")
-        .then(response => (this.productList = response.data));
+          .get("https://nonchalant-fang.glitch.me/listing")
+          .then(response => (this.productList = response.data));
     }
-  }
+  }*/
 };
 
 </script>
