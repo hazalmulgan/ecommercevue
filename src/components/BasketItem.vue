@@ -5,12 +5,12 @@
         <img v-bind:src="basketItem.image" fluid width="200" alt="basketItem.name" />
       </b-col>
       <b-col cols="4">
-        <b-row class="basketName">{{basketItem.name}}</b-row>
-        <b-row class="text-center basketPrice">{{basketItem.price*basketItem.amount}}₺</b-row>
+        <b-row class="basketName" id="name">{{basketItem.name}}</b-row>
+        <b-row class="text-center basketPrice" id="price">{{basketItem.price*basketItem.amount}}₺</b-row>
       </b-col>
     </b-row>
     <b-row class="row mt-3 mb-3" align-h="center">
-      <b-col cols="4">
+      <b-col cols="4" id="quantity">
         <label for="sb-inline"></label>
         <b-form-spinbutton id="sb-inline" class="basketAmount" v-model="basketItem.amount" inline></b-form-spinbutton>
       </b-col>

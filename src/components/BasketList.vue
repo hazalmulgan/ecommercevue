@@ -18,11 +18,11 @@
             <b-col cols="4">
               <span>MY CART({{mycartList.length}})</span>
             </b-col>
-            <b-col cols="4" style="text-align:end">
+            <!--<b-col cols="4" style="text-align:end">
               <b-button variant="outline-secondary" @click="clearAll" class="clear-button">
                 <b-icon icon="trash" aria-hidden="true"></b-icon>
               </b-button>
-            </b-col>
+            </b-col>-->
           </b-row>
         </b-col>
       </b-row>
@@ -32,7 +32,7 @@
         v-for="basketItem in mycartList"
         v-bind:key="basketItem.id"
       >
-        <input type="checkbox" :value="basketItem" v-model="selectedItems" @change="setSelected()">
+        <input type="checkbox" :value="basketItem" v-model="selectedItems">
         <basket-item :basket-item="basketItem"></basket-item>
       </b-row>
     </div>
@@ -44,10 +44,11 @@
               <b-button block variant="outline-secondary">CONTINUE SHOPPING</b-button>
             </router-link>
           </b-col>
+
           <b-col cols="4">
             <b-button
               class="order-button"
-              :disabled="mycartList.length == 0 ? true : false"
+              :disabled="selectedItems.length === 0 ? true : false"
               block
               @click="submitOrder"
             >PLACE ORDER</b-button>
@@ -76,9 +77,9 @@
 
 <script>
 
-import { mapGetters } from "vuex";
+import {mapGetters, mapActions, mapMutations} from "vuex";
 import BasketItem from "@/components/BasketItem.vue";
-import axios from 'axios';
+// import axios from 'axios';
 import { mapState } from "vuex";
 
 export default {
@@ -88,7 +89,7 @@ export default {
 
   computed: {
     ...mapGetters(["mycartList"]),
-    ...mapState(["snackbar"])
+    ...mapState(["snackbar"]),
   },
 
   data() {
@@ -100,11 +101,15 @@ export default {
   },
 
   methods: {
-    setSelected(){
-     console.log('selected', this.selectedItems)
-    },
-    async submitOrder() {
-      let orderedItems = [];
+    ...mapMutations(["SET_SELECTED_ITEMS"]),
+    submitOrder() {
+      if(this.selectedItems.length > 0){
+      this.$router.push({
+        name: "ThankYou", //use name for router push
+      });
+        this.SET_SELECTED_ITEMS(this.selectedItems);
+      }
+      /* let orderedItems = [];
       orderedItems = this.mycartList.map(item => {
         return { id: item.id, amount: item.amount };
       });
@@ -123,11 +128,12 @@ export default {
           text: "Dis Fircasi is out of stock!",
           color: "danger"
         });
-      }
-    },
-    clearAll() {
+      }*/
       this.$store.dispatch("clearCartItems");
-    }
+    },
+    /*clearAll() {
+      this.$store.dispatch("clearCartItems");
+    }*/
   }
 };
 </script>
