@@ -32,6 +32,7 @@
         v-for="basketItem in mycartList"
         v-bind:key="basketItem.id"
       >
+        <input type="checkbox" :value="basketItem" v-model="selectedItems" @change="setSelected()">
         <basket-item :basket-item="basketItem"></basket-item>
       </b-row>
     </div>
@@ -51,6 +52,9 @@
               @click="submitOrder"
             >PLACE ORDER</b-button>
           </b-col>
+        </b-row>
+        <b-row class="row mt-3 mb-3" align-h="center">
+          Toplam Fiyat: {{total}}
         </b-row>
       </b-col>
     </b-row>
@@ -89,11 +93,16 @@ export default {
 
   data() {
     return {
-      value: BasketItem.amount
+      value: BasketItem.amount,
+      selectedItems: [],
+      total: 0,
     };
   },
 
   methods: {
+    setSelected(){
+     console.log('selected', this.selectedItems)
+    },
     async submitOrder() {
       let orderedItems = [];
       orderedItems = this.mycartList.map(item => {
