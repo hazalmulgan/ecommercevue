@@ -113,7 +113,6 @@ mounted() {
       this.$router.push({
         name: "ThankYou", //use name for router push
       });
-      console.log('sekectes', this.selectedItems)
         this.SET_SELECTED_ITEMS(this.selectedItems);
       }
       /* let orderedItems = [];
