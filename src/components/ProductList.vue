@@ -11,7 +11,7 @@
 <script>
 
 import ProductItem from "@/components/ProductItem.vue";
-import axios from 'axios';
+// import axios from 'axios';
 
 export default {
   name: "ProductList",

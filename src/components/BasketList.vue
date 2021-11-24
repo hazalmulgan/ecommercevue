@@ -55,9 +55,9 @@
             >PLACE ORDER</b-button>
           </b-col>
         </b-row>
-        <b-row class="row mt-3 mb-3" align-h="center" style="font-size: 20px">
+       <!-- <b-row class="row mt-3 mb-3" align-h="center" style="font-size: 20px">
           Toplam Fiyat: {{total}}₺
-        </b-row>
+        </b-row>-->
       </b-col>
     </b-row>
     <b-row align-h="center">

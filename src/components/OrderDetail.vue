@@ -28,6 +28,7 @@
               <b-row class="text-center row mt-3">
                 <b-col class="name">{{ productItem.name }}</b-col>
                 <b-col cols="4" class="price">{{ productItem.price*productItem.amount }}₺</b-col>
+                <b-col cols="4" class="name" id="quantity">Adet: {{ productItem.amount }}</b-col>
               </b-row>
             </b-col>
           </b-row>
