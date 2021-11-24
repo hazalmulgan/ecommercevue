@@ -61,6 +61,7 @@ name: "OrderDetail",
     ...mapGetters(["myItemList"]),
   },
   mounted() {
+  console.log(this.myItemList)
     this.myItemList.forEach((data) => {
       this.total += data.price*data.amount;
     });

@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     dataList: [] as any,
-    snackbar: {}
+    snackbar: {},
+    selectedItem: [] as any,
   },
 
   mutations: {
@@ -26,6 +27,10 @@ export default new Vuex.Store({
       })
     },
 
+    SET_SELECTED_ITEMS: (state, selectedItems) => {
+    state.selectedItem = selectedItems
+
+    },
     SET_SNACKBAR(state, snackbar) {
       state.snackbar = snackbar
     },
@@ -50,6 +55,9 @@ export default new Vuex.Store({
   getters: {
     mycartList: state => {
       return state.dataList
+    },
+    myItemList: state => {
+      return state.selectedItem
     }
 
   },

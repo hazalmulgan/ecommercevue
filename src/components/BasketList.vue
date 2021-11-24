@@ -78,7 +78,7 @@
 
 <script>
 
-import {mapGetters, mapActions, mapMutations} from "vuex";
+import {mapGetters, mapMutations} from "vuex";
 import BasketItem from "@/components/BasketItem.vue";
 // import axios from 'axios';
 import { mapState } from "vuex";
@@ -113,6 +113,7 @@ mounted() {
       this.$router.push({
         name: "ThankYou", //use name for router push
       });
+      console.log('sekectes', this.selectedItems)
         this.SET_SELECTED_ITEMS(this.selectedItems);
       }
       /* let orderedItems = [];
